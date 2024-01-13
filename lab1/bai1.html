@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style type="text/css" media="screen">.user_item{
+        color: rgb(47, 0, 255);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    </style>
+    <ul id="target">
+
+    </ul>
+
+
+    <script>
+        var users = [
+            {id: 1, name: "Viet", gender: 1},
+            {id: 2, name: "Vy", gender: 2},
+            {id: 3, name: "Vu", gender: 1},
+            {id: 4, name: "Van", gender: 2}
+            
+        ];
+        var target = document.querySelector("#target");
+
+            users.forEach(function(user, index) {
+                var li = document.createElement("li");
+                li.textContent = (index + 1) + " - " + user.name + " - " + (user.gender === 1 ? "male" : "famale");
+                li.className = "user_item";
+                target.appendChild(li);
+            });
+    </script>
+</body>
+</html>

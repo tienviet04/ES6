@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Form Và Danh Sách</title>
+<style>
+.user_item {
+    color: green;
+    text-decoration: underline;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<form id="userForm">
+    ID: <input type="text" id="userId" required>
+    Name: <input type="text" id="userName" required>
+    Gender: 
+    <select id="userGender">
+        <option value="1">male</option>
+        <option value="2">famalc</option>
+    </select>
+    <button type="button" onclick="addUser()">Add</button>
+</form>
+
+<ul id="userList">
+</ul>
+
+<script>
+var users = [
+    
+];
+
+function addUser() {
+    var id = document.getElementById("userId").value;
+    var name = document.getElementById("userName").value;
+    var gender = document.getElementById("userGender").value;
+    
+    users.push({ id: id, name: name, gender: gender });
+    updateUserList();
+}
+
+function updateUserList() {
+    var list = document.getElementById("userList");
+    list.innerHTML = ""; // Clear the list
+    
+    users.forEach(function(user, index) {
+        var li = document.createElement("li");
+        li.textContent = (index + 1) + " - " + user.name + " - " + (user.gender === "1" ? "male" : "famalc");
+        li.className = "user_item";
+        list.appendChild(li);
+    });
+}
+
+updateUserList(); // Initial list update
+</script>
+
+</body>
+</html>

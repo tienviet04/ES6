@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let classRoom = [
+            "Trịnh Văn Trung",
+            "Hoàng Đình Tuyển",
+            "Vũ Tiến Việt",
+            "Nguyễn Tuấn Dũng",
+            "Đinh Tuấn Tài",
+            "Nguyễn Vy",
+            "Vũ Văn Việt",
+        ];
+
+        // Câu 1: Tách họ và tên riêng
+        const names = classRoom.map((fullName) => {
+            const [ho, ...tens] = fullName.split(' ');
+            const ten = tens.join(' ')
+            return { ho, ten };
+        });
+
+        console.log(names);
+
+        // Câu 2: Thêm một sv vào một vị trí bất kỳ trong mảng
+        const addSv = classRoom.push('Nguyễn Đình Bắc')
+        console.log(classRoom);
+
+        // Câu 3: Xoá một sinh viên khỏi mảng
+        const deleteSv = classRoom.splice(2, 1)
+        console.log(classRoom);
+
+        // Câu 4: Tìm kiếm theo tên, không chứa dấu
+        const find = classRoom.map((names) => {
+            const fullName = names.split(' ');
+            const name = fullName[fullName.length - 1]
+            const filter = name.replace(/[\u0300-\u036f]/g, '')
+            console.log(filter);
+        })
+    </script>
+</body>
+
+</html>
